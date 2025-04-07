@@ -1,4 +1,9 @@
 [🇬🇧 English](#-english-version) | [🇵🇱 Polski](#-wersja-polska)
+![Cypress](https://img.shields.io/badge/Cypress-12.0%2B-brightgreen)
+![Node.js](https://img.shields.io/badge/Node.js-18.x-blue)
+![License](https://img.shields.io/badge/License-MIT-purple)
+![Status](https://img.shields.io/badge/Build-coming_soon-lightgrey)
+
 ---
 ## 🇬🇧 English version
 # 🌱 Cypress Tests – OrangeHRM Automation Suite
