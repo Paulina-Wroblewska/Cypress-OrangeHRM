@@ -1,0 +1,43 @@
+{
+  "login": {
+    "username": {
+      "correct": "admin",
+      "wrong":"user"
+    },
+    "password": {
+      "correct":"admin123",
+      "wrong":"password"
+    }
+  },
+  "user": {
+    "first":{
+      "name": "Name",
+      "lastname": "Lastname"
+    }, 
+    "second": {
+      "name": "Name2",
+      "middleName":"Middle",
+      "lastname":"Surname",
+      "otherId":"otherId",
+      "nationality":"Polish",
+      "maritalStatus":[1,2,3],
+      "gender":[0,1]
+    }
+  }, 
+  "candidat": {
+    "name": "Candidat",
+    "lastname":"Surname", 
+    "email":{
+      "correct":"candidat@mail.com",
+      "missingAt":"candidat",
+      "missingDomain":"candidat@",
+      "missingTLD":"candidat@mail",
+      "dotWithoutTLD":"candidat@mail.",
+      "missingUsername":"@mail.com",
+      "missingDomainname":"candidat@.com"
+    }, 
+    "middleName":"Middle", 
+    "vacancy":["Junior Account Assistant","Payroll Administrator","Sales Representative", "Senior QA Lead","Senior Support Specialist","Software Engineer","test"],
+    "keywords":["Test", "Candidat", "keywords", "new word", "777"]
+  }
+}
