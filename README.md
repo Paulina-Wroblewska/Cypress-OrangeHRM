@@ -23,7 +23,7 @@ Testy pokrywają kluczowe funkcjonalności systemu: logowanie, zarządzanie prac
 - 📄 Rekrutacja – dodawanie kandydata, walidacje formularzy, edycja danych
 - 🧱 Struktura w oparciu o **Page Object Model**
 - 🎲 Wykorzystanie losowych danych i `fixture`ów
-
+```
 ## 🗂 Struktura projektu
 Cypress-OrangeHRM/
 ├── cypress/ 
@@ -38,10 +38,13 @@ Cypress-OrangeHRM/
 ├── cypress.config.js
 ├── package.json
 └── .gitignore
+```
+##🔍 Przykład testu (login)
 
-🔍 Przykład testu (login)
-
-<pre> ```javascript it("Correct login", () => { cy.login(logindata.login.username.correct, logindata.login.password.correct) cy.url().should('include', 'web/index.php/dashboard/index') }) ``` </pre>
+<pre> ```javascript it("Correct login", () => { 
+  cy.login(logindata.login.username.correct, logindata.login.password.correct) 
+  cy.url().should('include', 'web/index.php/dashboard/index') 
+  }) ``` </pre>
 
 ## 🛠 Jak uruchomić projekt?
 ### 🔧 Instalacja:
@@ -56,19 +59,20 @@ npm install
 👉Headless (np. do CI/CD):
 ```npx cypress run```
 
-🧰 Tech Stack
-Cypress 12+
-JavaScript (ES6+)
-Mocha & Chai – struktura testów i asercje
-Page Object Model – czysta architektura
-Lodash / randomizacja – losowe dane
-attach-file – dodawanie plików PDF
+##🧰 Tech Stack
+- Cypress 12+
+- JavaScript (ES6+)
+- Mocha & Chai – struktura testów i asercje
+- Page Object Model – czysta architektura
+- Lodash / randomizacja – losowe dane
+- attach-file – dodawanie plików PDF
 
 ⬆️Pomysły na rozwój
 
 ## 👩‍💻 Autor 🩷
 Projekt stworzony przez **Paulinę Wróblewską** 💖  
 🔗 [GitHub](https://github.com/Paulina-Wroblewska)
+
 🔗 [LinkedIn](https://www.linkedin.com/in/paulina-wr%C3%B3blewska-2381a217b/)
 
 
