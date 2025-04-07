@@ -37,12 +37,12 @@ Cypress-OrangeHRM/
 ```
 
 ## 🔍 Example test (login)
-<pre> javascript 
-  it("Correct login", () => { 
+```javascript
+it("Correct login", () => { 
   cy.login(logindata.login.username.correct, logindata.login.password.correct) 
   cy.url().should('include', 'web/index.php/dashboard/index') 
-  })
-</pre>
+})
+```
 
 ## 🛠How to run this project?
 ### 🔧 Installation:
@@ -118,12 +118,12 @@ Cypress-OrangeHRM/
 ```
 ## 🔍 Przykład testu (login)
 
-<pre> javascript 
-  it("Correct login", () => { 
+```javascript
+it("Correct login", () => { 
   cy.login(logindata.login.username.correct, logindata.login.password.correct) 
   cy.url().should('include', 'web/index.php/dashboard/index') 
-  })
-</pre>
+})
+```
 
 ## 🛠 Jak uruchomić projekt?
 ### 🔧 Instalacja:
@@ -133,8 +133,8 @@ cd Cypress-OrangeHRM
 npm install
 ```
 👉GUI: 
-```
-bash npx cypress open
+```bash
+npx cypress open
 ```
 
 👉Headless (np. do CI/CD):
