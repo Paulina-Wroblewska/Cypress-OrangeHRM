@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-08T00:52:10.960Z",
+    "end": "2025-04-08T00:52:59.334Z",
+    "duration": 48374,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "425e3a62-40c1-4ed9-91a2-d5486bfb3f00",
+      "title": "",
+      "fullFile": "cypress\\e2e\\OrangeHRM\\2.PIM.cy.js",
+      "file": "cypress\\e2e\\OrangeHRM\\2.PIM.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c6ad6642-4d0b-46d0-90cb-5bc503c8f7dd",
+          "title": "Employee management",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add new employee - without full name",
+              "fullTitle": "Employee management Add new employee - without full name",
+              "timedOut": null,
+              "duration": 6604,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.pimNav.menu.eq(2).click();\ncy.url().should('include', 'web/index.php/pim/addEmployee');\ncy.get('[type=\"submit\"]').click();\ncy.url().should('include', 'web/index.php/pim/addEmployee');\n_PageObjectModel.empPage.name.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.empPage.lastName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.empPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\n_PageObjectModel.empPage.errorMessage.eq(1).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\ncy.url().should('include', 'web/index.php/pim/addEmployee');",
+              "err": {},
+              "uuid": "9c1597fc-24c1-4ee4-8a2b-f0f7afe3915e",
+              "parentUUID": "c6ad6642-4d0b-46d0-90cb-5bc503c8f7dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add new employee - correct",
+              "fullTitle": "Employee management Add new employee - correct",
+              "timedOut": null,
+              "duration": 9066,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.pimNav.menu.eq(2).click();\ncy.url().should('include', 'web/index.php/pim/addEmployee');\n_PageObjectModel.empPage.name.click().type(_data.default.user.first.name);\n_PageObjectModel.empPage.lastName.click().type(_data.default.user.first.lastname).type('{enter}');\ncy.url().should('include', 'web/index.php/pim/viewPersonalDetails/empNumber');\ncy.get(\".oxd-input--active\").eq(4).should('exist').should('be.visible').should($input => {\n  expect($input[0].value).to.not.be.empty;\n}).then($input => {\n  id = $input[0].value;\n});",
+              "err": {},
+              "uuid": "673d9fbd-b6e7-4124-b03a-b69040ffca96",
+              "parentUUID": "c6ad6642-4d0b-46d0-90cb-5bc503c8f7dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add new employee with same ID",
+              "fullTitle": "Employee management Add new employee with same ID",
+              "timedOut": null,
+              "duration": 6811,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.pimNav.menu.eq(2).click();\ncy.url().should('include', 'web/index.php/pim/addEmployee');\n_PageObjectModel.empPage.name.click().type(_data.default.user.first.name);\n_PageObjectModel.empPage.lastName.click().type(_data.default.user.first.lastname);\n_PageObjectModel.empPage.id.click().clear().type(id);\ncy.get('.oxd-input-field-error-message').should('be.visible');\n_PageObjectModel.empPage.id.should('have.css', 'border-color', 'rgb(235, 9, 16)');\ncy.get(\".oxd-input-field-error-message\").invoke('text').then(text => {\n  expect(text).to.equal(\"Employee Id already exists\");\n});\ncy.get('[type=\"submit\"]').click();\n_PageObjectModel.empPage.id.should('have.css', 'border-color', 'rgb(235, 9, 16)');\ncy.get(\".oxd-input-field-error-message\").invoke('text').then(text => {\n  expect(text).to.equal(\"Employee Id already exists\");\n});",
+              "err": {},
+              "uuid": "5ab9e005-ac78-4dec-976f-3c72a31be238",
+              "parentUUID": "c6ad6642-4d0b-46d0-90cb-5bc503c8f7dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Search employee",
+              "fullTitle": "Employee management Search employee",
+              "timedOut": null,
+              "duration": 5511,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.pimNav.menu.eq(1).click();\ncy.get('[placeholder=\"Type for hints...\"]').eq(0).click().type(_data.default.user.first.name).type(' ').type(_data.default.user.first.lastname);\ncy.get('.oxd-input').eq(1).type(id);\ncy.get('[type=\"submit\"]').click();\ncy.get('.oxd-table-row--clickable').should('exist');\n_PageObjectModel.empPage.cell.eq(2).invoke('text').then(text => {\n  expect(text.trim()).to.equal(_data.default.user.first.name);\n});\n_PageObjectModel.empPage.cell.eq(3).invoke('text').then(text => {\n  expect(text.trim()).to.equal(_data.default.user.first.lastname);\n});\n_PageObjectModel.empPage.cell.eq(1).invoke('text').then(text => {\n  expect(text.trim()).to.equal(id);\n});\ncy.get('.oxd-table-row--clickable').click();\ncy.url().should('include', 'web/index.php/pim/viewPersonalDetails/empNumber/');",
+              "err": {},
+              "uuid": "cce968af-d394-4691-9002-c97459c4ce82",
+              "parentUUID": "c6ad6642-4d0b-46d0-90cb-5bc503c8f7dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Employee data change",
+              "fullTitle": "Employee management Employee data change",
+              "timedOut": null,
+              "duration": 12554,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.pimNav.menu.eq(1).click();\ncy.get('[placeholder=\"Type for hints...\"]').eq(0).click().type(_data.default.user.first.name).type(' ').type(_data.default.user.first.lastname);\ncy.get('.oxd-input').eq(1).type(id);\ncy.get('[type=\"submit\"]').click();\ncy.get('.oxd-table-row--clickable').first().click();\n_PageObjectModel.empPage.name.click().clear().type(_data.default.user.second.name);\n_PageObjectModel.empPage.middleName.click().clear().type(_data.default.user.second.middleName);\n_PageObjectModel.empPage.lastName.click().clear().type(_data.default.user.second.lastname);\n_PageObjectModel.empPage.otherId.click().clear().type(_data.default.user.second.otherId);\n_PageObjectModel.empPage.nationality.click();\ncy.contains(_data.default.user.second.nationality).click();\n_PageObjectModel.empPage.maritalStatus.click();\ncy.get('.oxd-select-dropdown div').eq(randomMaritalStatus).click();\n_PageObjectModel.empPage.gender.eq(randomGender).click({\n  force: true\n});\ncy.get('[type=\"submit\"]').first().click();\ncy.url().should('include', '/web/index.php/pim/viewPersonalDetails/empNumber/');\ncy.get('#oxd-toaster_1').should('be.visible').and('contain', 'Successfully Updated');\ncy.get('#oxd-toaster_1', {\n  timeout: 5000\n}).should('not.be.visible');\n_PageObjectModel.empPage.name.invoke('val').should('equal', _data.default.user.second.name);\n_PageObjectModel.empPage.middleName.invoke('val').should('equal', _data.default.user.second.middleName);\n_PageObjectModel.empPage.lastName.invoke('val').should('equal', _data.default.user.second.lastname);\n_PageObjectModel.empPage.otherId.invoke('val').should('equal', _data.default.user.second.otherId);\n_PageObjectModel.empPage.nationality.should('have.text', _data.default.user.second.nationality);",
+              "err": {},
+              "uuid": "c0656a06-e9b4-4754-9b40-c2f715a2cabc",
+              "parentUUID": "c6ad6642-4d0b-46d0-90cb-5bc503c8f7dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete employee",
+              "fullTitle": "Employee management Delete employee",
+              "timedOut": null,
+              "duration": 7413,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.oxd-input').eq(1).type(id);\ncy.get('[type=\"submit\"]').click().wait(500); // wait added because result table takes time to load after search\n_PageObjectModel.empPage.cell.eq(1).invoke('text').then(text => {\n  expect(text.trim()).to.equal(id);\n});\ncy.get(\".bi-trash\").click();\ncy.contains(\"Yes, Delete\").should('be.visible').click();\ncy.contains('#oxd-toaster_1', 'Successfully Deleted', {\n  timeout: 10000\n}).should('be.visible');\ncy.get('#oxd-toaster_1').should('be.visible').and('contain', 'No Records');",
+              "err": {},
+              "uuid": "7930733b-05aa-4b22-ac0d-904f6fc1ee19",
+              "parentUUID": "c6ad6642-4d0b-46d0-90cb-5bc503c8f7dd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9c1597fc-24c1-4ee4-8a2b-f0f7afe3915e",
+            "673d9fbd-b6e7-4124-b03a-b69040ffca96",
+            "5ab9e005-ac78-4dec-976f-3c72a31be238",
+            "cce968af-d394-4691-9002-c97459c4ce82",
+            "c0656a06-e9b4-4754-9b40-c2f715a2cabc",
+            "7930733b-05aa-4b22-ac0d-904f6fc1ee19"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 47959,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

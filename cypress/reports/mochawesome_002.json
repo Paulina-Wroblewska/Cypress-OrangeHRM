@@ -1,0 +1,186 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-08T00:53:00.754Z",
+    "end": "2025-04-08T00:53:42.078Z",
+    "duration": 41324,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ec399e16-2f59-40b9-9393-2cb86fbf63ec",
+      "title": "",
+      "fullFile": "cypress\\e2e\\OrangeHRM\\3.Recruitment.cy.js",
+      "file": "cypress\\e2e\\OrangeHRM\\3.Recruitment.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2ea7bc16-314b-4364-8929-9790278b85b2",
+          "title": "Recruitment functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add new candidate - without all data",
+              "fullTitle": "Recruitment functionality Add new candidate - without all data",
+              "timedOut": null,
+              "duration": 5449,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.recPage.button.eq(2).click();\ncy.url().should('include', 'web/index.php/recruitment/addCandidate');\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.firstName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.lastName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\n_PageObjectModel.recPage.errorMessage.eq(1).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});",
+              "err": {},
+              "uuid": "aa29b249-8a00-48ea-ad82-590611cfcc9a",
+              "parentUUID": "2ea7bc16-314b-4364-8929-9790278b85b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add new candidate - missing required fields step by step",
+              "fullTitle": "Recruitment functionality Add new candidate - missing required fields step by step",
+              "timedOut": null,
+              "duration": 9303,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.recPage.button.eq(2).click();\ncy.url().should('include', 'web/index.php/recruitment/addCandidate');\ncy.log(\"First name filled\");\n_PageObjectModel.recPage.firstName.click().clear().type(_data.default.candidat.name);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.lastName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\n_PageObjectModel.recPage.errorMessage.eq(1).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\ncy.log(\"Email missing\");\n_PageObjectModel.recPage.lastName.click().clear().type(_data.default.candidat.lastname);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\ncy.log(\"Only email filled\");\n_PageObjectModel.recPage.firstName.click().clear();\n_PageObjectModel.recPage.lastName.click().clear();\n_PageObjectModel.recPage.email.click().type(_data.default.candidat.email.correct);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.firstName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.lastName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\n_PageObjectModel.recPage.errorMessage.eq(1).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\ncy.log(\"Missing last name\");\n_PageObjectModel.recPage.firstName.click().type(_data.default.candidat.name);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.lastName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\ncy.log(\"Only lastname filled\");\n_PageObjectModel.recPage.firstName.click().clear();\n_PageObjectModel.recPage.email.click().clear();\n_PageObjectModel.recPage.lastName.click().type(_data.default.candidat.lastname);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.firstName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\n_PageObjectModel.recPage.errorMessage.eq(1).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});\ncy.log(\"Missing first name\");\n_PageObjectModel.recPage.email.click().type(_data.default.candidat.email.correct);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.firstName.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(0).invoke('text').then(text => {\n  expect(text).to.equal(\"Required\");\n});",
+              "err": {},
+              "uuid": "195a0823-9974-47eb-ad47-c4c1593a748d",
+              "parentUUID": "2ea7bc16-314b-4364-8929-9790278b85b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add new candidate - wrong email (multiple invalid formats)",
+              "fullTitle": "Recruitment functionality Add new candidate - wrong email (multiple invalid formats)",
+              "timedOut": null,
+              "duration": 10338,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.recPage.button.eq(2).click();\ncy.url().should('include', 'web/index.php/recruitment/addCandidate');\n//1. Email without '@'\n_PageObjectModel.recPage.email.click().type(_data.default.candidat.email.missingAt);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});\n//2. Email without domain\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.missingDomain);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});\n//3. Email without TLD (e.g. '.com')\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.missingTLD);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});\n//4. Dot without TLD\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.dotWithoutTLD);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});\n//5. Missing username\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.missingUsername);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});\n//6. Missing domain name\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.missingDomainname);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});\n//7. Correct email with extra space\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.correct).type(\" \");\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});\n//8. Doubled correct email\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.correct).type(_data.default.candidat.email.correct);\n_PageObjectModel.recPage.submit.click();\n_PageObjectModel.recPage.email.should('have.css', 'border-color', 'rgb(235, 9, 16)');\n_PageObjectModel.recPage.errorMessage.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(\"Expected format: admin@example.com\");\n});",
+              "err": {},
+              "uuid": "00b8f8b0-1366-4e9e-9c57-ef9cbd64ee35",
+              "parentUUID": "2ea7bc16-314b-4364-8929-9790278b85b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add new candidate - correct",
+              "fullTitle": "Recruitment functionality Add new candidate - correct",
+              "timedOut": null,
+              "duration": 10247,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.recPage.button.eq(2).click();\ncy.url().should('include', 'web/index.php/recruitment/addCandidate');\n_PageObjectModel.recPage.firstName.click().clear().type(_data.default.candidat.name);\n_PageObjectModel.recPage.lastName.click().clear().type(_data.default.candidat.lastname);\n_PageObjectModel.recPage.email.click().clear().type(_data.default.candidat.email.correct);\n_PageObjectModel.recPage.submit.click();\ncy.get('.oxd-toast').should('be.visible').and('contain', 'Successfully Saved');\ncy.url().should('include', 'web/index.php/recruitment/addCandidate/');\n_PageObjectModel.recPage.firstName.invoke('val').should('equal', _data.default.candidat.name);\n_PageObjectModel.recPage.lastName.invoke('val').should('equal', _data.default.candidat.lastname);\n_PageObjectModel.recPage.email.invoke('val').should('equal', _data.default.candidat.email.correct);\ncy.get('[placeholder=\"yyyy-dd-mm\"]').invoke('val').then(val => {\n  cy.today().then(today => {\n    expect(val).to.equal(today);\n  });\n});",
+              "err": {},
+              "uuid": "ed804441-cec2-4f02-a359-bcd0175ef24b",
+              "parentUUID": "2ea7bc16-314b-4364-8929-9790278b85b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Edit candidate data",
+              "fullTitle": "Recruitment functionality Edit candidate data",
+              "timedOut": null,
+              "duration": 5491,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_PageObjectModel.recPage.candidateName.click().type(_data.default.candidat.name).wait(200);\ncy.contains('Searching...').should('not.exist');\ncy.get(\".oxd-autocomplete-option\").first().click();\n_PageObjectModel.recPage.submit.click();\nconst candidate = _data.default.candidat.name + \"  \" + _data.default.candidat.lastname;\n_PageObjectModel.recPage.cell.eq(2).invoke('text').then(text => {\n  expect(text).to.equal(candidate);\n});\n_PageObjectModel.recPage.cell.eq(4).invoke('text').then(data => {\n  cy.today().then(today => {\n    expect(data).to.equal(today);\n  });\n});\n_PageObjectModel.recPage.lookCandidat.click();\n_PageObjectModel.recPage.editCheckbox.should('have.css', 'background-color', 'rgb(232, 234, 239)');\n_PageObjectModel.recPage.editCheckbox.click().wait(300);\n_PageObjectModel.recPage.editCheckbox.should('not.have.css', 'background-color', 'rgb(232, 234, 239)');\n_PageObjectModel.recPage.middleName.click().clear().type(_data.default.candidat.middleName);\ncy.get('.oxd-select-text').click();\ncy.get('[role=\"option\"]').then(options => {\n  const exists = [...options].some(option => option.innerText === randomJobVacancy);\n  if (exists) {\n    cy.contains('[role=\"option\"]', randomJobVacancy).click();\n  } else {\n    cy.log(`Vacancy \"${randomJobVacancy}\" not found – skipping`);\n  }\n});\n_PageObjectModel.recPage.contactNumber.click().clear().type(randomPhone);\ncy.get('.oxd-file-input').attachFile('pdfexample.pdf', {\n  force: true\n}).trigger('change', {\n  force: true\n});\ncy.get('.oxd-file-input').should('have.prop', 'files').then(files => {\n  expect(files[0].name).to.eq('pdfexample.pdf');\n});\nconst combined = _data.default.candidat.keywords.join(' ');\n_PageObjectModel.recPage.keyWords.click().clear().type(combined);\ncy.get('.oxd-button').click().wait(200);\ncy.get('.oxd-toast').should('be.visible').and('contain', 'Successfully Updated');\n_PageObjectModel.recPage.editCheckbox.should('have.css', 'background-color', 'rgb(232, 234, 239)');\ncy.reload();\n_PageObjectModel.recPage.firstName.should('have.value', _data.default.candidat.name);\n_PageObjectModel.recPage.middleName.should('have.value', _data.default.candidat.middleName);\n_PageObjectModel.recPage.lastName.should('have.value', _data.default.candidat.lastname);\n_PageObjectModel.recPage.email.should('have.value', _data.default.candidat.email.correct);\n_PageObjectModel.recPage.contactNumber.should('have.value', randomPhone);\n///cy.get('.uploaded-file-name') .should('contain', 'pdfexample.pdf'); TODO: Add assertion for uploaded file name when element is available\n_PageObjectModel.recPage.keyWords.should('have.value', combined);",
+              "err": {
+                "message": "AssertionError: expected 'Candidat Middle Surname' to equal 'Candidat  Surname'",
+                "estack": "AssertionError: expected 'Candidat Middle Surname' to equal 'Candidat  Surname'\n    at Context.eval (webpack://test-automation/./cypress/e2e/OrangeHRM/3.Recruitment.cy.js:183:28)",
+                "diff": "- 'Candidat Middle Surname'\n+ 'Candidat  Surname'\n"
+              },
+              "uuid": "816360d5-a452-47de-bd9f-3c3469ffec6b",
+              "parentUUID": "2ea7bc16-314b-4364-8929-9790278b85b2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa29b249-8a00-48ea-ad82-590611cfcc9a",
+            "195a0823-9974-47eb-ad47-c4c1593a748d",
+            "00b8f8b0-1366-4e9e-9c57-ef9cbd64ee35",
+            "ed804441-cec2-4f02-a359-bcd0175ef24b"
+          ],
+          "failures": [
+            "816360d5-a452-47de-bd9f-3c3469ffec6b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 40828,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
