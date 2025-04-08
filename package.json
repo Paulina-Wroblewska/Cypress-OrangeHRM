@@ -10,7 +10,7 @@
   "author": "Paulina W",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.6.2",
+    "cypress": "^13.17.0",
     "cypress-file-upload": "^5.0.8"
   }
 }
