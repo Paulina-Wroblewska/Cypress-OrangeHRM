@@ -4,9 +4,13 @@
   "description": "Testy automatyczne w cypressie. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "open": "npx cypress open"
-  },
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "open": "npx cypress open",
+  "report:merge": "npx mochawesome-merge cypress/reports/*.json > mochawesome.json",
+  "report:generate": "npx marge mochawesome.json --reportDir mochawesome-report",
+  "report:full": "npm run report:merge && npm run report:generate"
+}
+,
   "author": "Paulina W",
   "license": "ISC",
   "devDependencies": {
@@ -16,4 +20,5 @@
     "mochawesome-merge": "^5.0.0",
     "mochawesome-report-generator": "^6.2.0"
   }
+  
 }
