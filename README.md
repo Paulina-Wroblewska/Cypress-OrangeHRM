@@ -3,7 +3,8 @@
 ![Cypress](https://img.shields.io/badge/Cypress-12.0%2B-brightgreen)
 ![Node.js](https://img.shields.io/badge/Node.js-18.x-blue)
 ![License](https://img.shields.io/badge/License-MIT-purple)
-![Status](https://img.shields.io/badge/Build-coming_soon-lightgrey)
+![Test Status](https://img.shields.io/github/actions/workflow/status/Paulina-Wroblewska/Cypress-OrangeHRM/cypress.yml?label=E2E%20Tests)
+
 
 ---
 ## 🇬🇧 English version
